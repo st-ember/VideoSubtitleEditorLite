@@ -1,0 +1,76 @@
+
+.modal-default > .modal-header {
+    color: #fff;
+    background-color: #2e3033;
+}
+.modal-info > .modal-header {
+    color: #fff;
+    /*    background-color: #269b94;*/
+    background-color: #3cabc4;
+}
+.modal-success > .modal-header {
+    color: #fff;
+    background-color: #77ae2c;
+}
+.modal-warning > .modal-header {
+    color: #fff;
+    background-color: #ec971f;
+}
+.modal-error > .modal-header {
+    color: #fff;
+    background-color: #a94442;
+}
+
+.form-anchor {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    color: #3cabc4;
+    font-size: 15px;
+    text-decoration: none;
+}
+.form-anchor::after {
+    border-top: 1px solid #3cabc4;
+}
+.form-element-container > .form-anchor {
+    color: #3cabc4;
+}
+input[type="checkbox"]:after {
+    border-color: #3cabc4;
+}
+input[type="checkbox"]:checked:before {
+    border-color: #3cabc4;
+}
+
+.form-container input:not([type="radio"]):not([type="checkbox"]),
+.form-container textarea {
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgb(60 171 196 / 50%);
+}
+.form-container input:not([type="radio"]):not([type="checkbox"]):focus, .form-container textarea:focus {
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px rgb(60 171 196 / 50%);
+}
+.form-radio:checked:focus + label:before {
+    box-shadow: 0 0 0 2px rgb(60 171 196 / 50%);
+}
+input[type="checkbox"]:checked:focus:before {
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px rgb(60 171 196 / 50%);
+}
+
+.selector-trigger > .trigger-text-container {
+    top: 1px;
+}
+.small-button.row-insert-button:active, .small-button.row-delete-button:active {
+    top: 17px;
+}
+
+.selector-trigger:active, .selector-trigger.active, .selector-trigger.menu-opened {
+    height: 40px;
+    padding-top: 0;
+    box-shadow: 0 0 0 2px rgb(60 171 196 / 50%), inset 0 2px 1px rgb(0 0 0 / 13%);
+}
+.selector-option.selector-selected {
+    background-color: #3cabc4;
+}
+.selector-option.selector-selected:hover, .selector-option.selector-selected.focus {
+    background-color: #4bcbe8;
+}

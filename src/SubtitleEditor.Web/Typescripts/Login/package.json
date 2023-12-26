@@ -1,0 +1,13 @@
+{
+    "name": "subtitle-manager-login-app",
+    "version": "1.0.0",
+    "author": "Frank Tsai",
+    "description": "Video subtitle manager login page.",
+    "main": "./dist/login.js",
+    "types": "./dist/login.d.ts",
+    "dependencies": {
+        "uform-utility": "file:C:/Users/frank/repo/Form/uform-utility",
+        "uform-api": "file:C:/Users/frank/repo/Form/uform-api",
+        "uform-page": "file:C:/Users/frank/repo/Form/uform-page"
+    }
+}

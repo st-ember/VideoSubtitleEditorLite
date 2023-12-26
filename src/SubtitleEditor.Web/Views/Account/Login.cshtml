@@ -1,0 +1,48 @@
+﻿@using SubtitleEditor.Web.Models.Account;
+@model LoginViewModel
+@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "登入";
+}
+
+<div class="page-container full-width">
+    <div class="board">
+        <form id="login-form" class="form-element-container" asp-route-returnurl="@ViewData["ReturnUrl"]" role="form" method="post">
+            <div class="title">登入系統</div>
+            <div class="form-container">
+                <label for="account-input">帳號</label>
+                <input id="account-input" type="text" asp-for="Account" autocomplete="off" autofocus />
+            </div>
+            <div class="form-container">
+                <label for="password-input">密碼</label>
+                <input id="password-input" type="password" asp-for="Password" autocomplete="off" />
+            </div>
+            <div id="captcha-image-container" class="form-container">
+                <button id="next-image-button" type="button" class="captcah-next-button" tabindex="-1" disabled> @*class misspelled*@
+                    <i class="fa-solid fa-arrows-rotate"></i>換一張
+                </button>
+            </div>
+            <div class="form-container">
+                <label for="captcha-input">驗證碼</label>
+                <input id="captcha-input" type="text" asp-for="CaptchaCode" maxlength="4" autocomplete="off" placeholder="請輸入上方的驗證碼" spellcheck="false" />
+            </div>
+            @if (Model.Error != null)
+            {
+                <div class="form-container">
+                    <span class="form-note danger">
+                        <span class="form-icon form-note-icon danger">
+                            <i class="fa fa-circle-xmark"></i>
+                        </span>
+                        <span class="form-note-text">@(Model.Error)</span>
+                    </span>
+                </div>
+            }
+            <div class="button-container">
+                @*<span id="forget-password-trigger" class="form-anchor">
+                    <i class="fa fa-question-circle"></i>忘記密碼
+                </span>*@
+                <button id="login-button" type="submit" class="primary">登入</button>
+            </div>
+        </form>
+    </div>
+</div>

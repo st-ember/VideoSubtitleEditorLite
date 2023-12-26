@@ -1,0 +1,32 @@
+﻿@using SubtitleEditor.Core.Contexts;
+@using SubtitleEditor.Infrastructure.Services;
+@inject IPermissionService PermissionService
+@{
+    ViewData["Title"] = "系統設定";
+    var permissionContext = await PermissionService.GetLoginUserPermissionAsync();
+}
+
+<div class="page-container full-width with-side-menu scrollable">
+    <div class="side-menu-container" role="menu">
+        @if (permissionContext.Contains(SystemAction.ListLog))
+        {
+            <a role="menuitem" asp-action="List" asp-controller="Log">系統紀錄</a>
+        }
+        @if (permissionContext.ContainsAny(SystemAction.ShowUserListView, SystemAction.ShowUserGroupListView))
+        {
+            <a role="menuitem" asp-action="Entry" asp-controller="User" class="with-sub-item">使用者</a>
+        }
+        @if (permissionContext.Contains(SystemAction.ListOption))
+        {
+            <a role="menuitem" asp-action="List" asp-controller="Option" class="active">系統設定</a>
+        }
+        @if (permissionContext.Contains(SystemAction.ShowSystemStatusView))
+        {
+            <a role="menuitem" asp-action="Index" asp-controller="Status">系統狀態</a>
+        }
+    </div>
+    <div class="title-container">
+        <span class="title">系統設定</span>
+    </div>
+    <div id="form-container" class="board"></div>
+</div>

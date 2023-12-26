@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "字幕編輯器";
+}
+@section Stylies {
+    <environment exclude="Production">
+        <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/base.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/editor.css" asp-append-version="true" />
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" href="~/lib/videojs/videojs.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/editor.all.min.css" asp-append-version="true" />
+    </environment>
+}
+
+<div class="page-container full-width no-padding"></div>

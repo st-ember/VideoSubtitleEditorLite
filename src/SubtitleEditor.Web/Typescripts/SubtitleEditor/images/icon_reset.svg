@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_reset@3x</title>
+    <g id="icon_reset" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#181818" x="7" y="8" width="3" height="17"></rect>
+        <path d="M12.5,23 L20.5,23 C22.709139,23 24.5,21.209139 24.5,19 L24.5,15 C24.5,12.790861 22.709139,11 20.5,11 L13.5,11 L13.5,11" id="Path-2" stroke="#181818" stroke-width="2.3"></path>
+        <polygon id="Triangle" fill="#181818" transform="translate(14.000000, 11.000000) rotate(-90.000000) translate(-14.000000, -11.000000) " points="14 7.5 17.5 14.5 10.5 14.5"></polygon>
+    </g>
+</svg>

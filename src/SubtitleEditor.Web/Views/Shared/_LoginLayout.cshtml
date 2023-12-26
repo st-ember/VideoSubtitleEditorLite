@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="本網頁著作權所有" />
+    <title>@ViewData["Title"]</title>
+    <environment exclude="Production">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/form.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+        @{
+            if (Model != null && Model.AsrAccess != null && !Model.AsrAccess)
+            {
+                <link rel="stylesheet" href="~/css/asr-limited.css" asp-append-version="true" />
+            }
+        }
+        <script src="~/lib/polyfills/polyfills.js" asp-append-version="true"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" integrity="sha512-vRqhAr2wsn+/cSsyz80psBbCcqzz2GTuhGk3bq3dAyytz4J/8XwFqMjiAGFBj+WM95lHBJ9cDf87T3P8yMrY7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" href="~/lib/fontawesome/all.min.css" asp-append-version="true" asp-fallback-src="./lib/fontawesome/all.min.css" />
+        <link rel="stylesheet" href="~/css/site.all.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/login.min.css" asp-append-version="true" />
+        <script src="~/lib/polyfills/polyfills.js" asp-append-version="true"></script>
+        <script src="~/lib/require/require.min.js" asp-append-version="true"></script>
+    </environment>
+    @await RenderSectionAsync("Stylies", required: false)
+</head>
+<body>
+    <partial name="_LoginHeaderPartial" />
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="left">
+            <p></p>
+            <p>
+                <span>
+                    Copyright&nbsp;&copy;&nbsp;
+                    @(DateTime.Today.Year.ToString())&nbsp;Video subtitle editor system
+                </span>
+            </p>
+        </div>
+    </footer>
+    @await RenderSectionAsync("Scripts", required: false)
+    <environment exclude="Production">
+        <script src="~/js/form.login.js"></script>
+        <script src="~/js/login.js"></script>
+        <script src="~/js/loader.login.js"></script>
+    </environment>
+    <environment include="Production">
+        <script src="~/js/login.all.min.js" asp-append-version="true"></script>
+    </environment>
+</body>
+</html>

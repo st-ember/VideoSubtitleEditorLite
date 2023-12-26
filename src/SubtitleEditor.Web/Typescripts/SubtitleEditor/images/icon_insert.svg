@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_insert@3x</title>
+    <g id="icon_insert" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#090909" x="6" y="8" width="14" height="3"></rect>
+        <rect id="Rectangle-Copy" fill="#090909" x="6" y="22" width="20" height="3"></rect>
+        <polygon id="Triangle" fill="#090909" transform="translate(11.000000, 16.416667) rotate(-90.000000) translate(-11.000000, -16.416667) " points="11 12.9166667 15.0833333 19.9166667 6.91666667 19.9166667"></polygon>
+        <path d="M11,18 L11,15 L23,15 L23,8 L26,8 L26,18 L11,18 Z" id="Combined-Shape" fill="#090909"></path>
+    </g>
+</svg>

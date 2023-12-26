@@ -1,0 +1,15 @@
+﻿@using SubtitleEditor.Infrastructure.Services;
+@using SubtitleEditor.Core.Contexts;
+@inject ISystemOptionService SystemOptionService
+@{
+    var siteTitle = await SystemOptionService.GetContentAsync(SystemOptionNames.SiteTitle) ?? "Subtitle Editor System";
+}
+<header>
+    <div role="banner">
+        <a id="title" asp-controller="Account" asp-action="Login">
+            <img id="site-logo" src="/Logo/Get" title="LOGO" />
+            @(siteTitle)
+        </a>
+    </div>
+    <nav></nav>
+</header>

@@ -1,0 +1,44 @@
+﻿@using SubtitleEditor.Infrastructure.Services;
+@using SubtitleEditor.Core.Contexts;
+@using SubtitleEditor.Core.Models;
+@using System.Text.Json;
+@inject IAccountService AccountService
+@inject ISystemOptionService SystemOptionService
+@inject IPermissionService PermissionService
+@{
+    var siteTitle = await SystemOptionService.GetContentAsync(SystemOptionNames.SiteTitle) ?? "Subtitle Editor System";
+    var account = AccountService.GetLoginUserAccount();
+    var permissionContext = await PermissionService.GetLoginUserPermissionAsync();
+}
+<header>
+    <div role="banner">
+        <a id="title" asp-controller="Topic" asp-action="List">
+            <img id="site-logo" src="/Logo/Get" title="LOGO" />
+            @(siteTitle)
+        </a>
+    </div>
+    <nav>
+        <div role="menu">
+            @if (permissionContext.Contains(SystemAction.ShowTopicListView))
+            {
+                <a asp-controller="Topic" asp-action="Entry">單集清單</a>
+            }
+            @if (permissionContext.Contains(SystemAction.ShowFixBookView))
+            {
+                <a asp-controller="FixBook" asp-action="List">勘誤表</a>
+            }
+            @if (permissionContext.ContainsAny(SystemAction.ListLog, SystemAction.ShowUserListView, SystemAction.ShowUserGroupListView, SystemAction.ListOption, SystemAction.ShowSystemStatusView))
+            {
+                <a asp-controller="Management" asp-action="Entry">系統管理</a>
+            }
+        </div>
+    </nav>
+    @if (!string.IsNullOrEmpty(account))
+    {
+        <div id="self-manage" data-name="@(account)"></div>
+    }
+    else
+    {
+        <div id="self-manage">歡迎光臨！</div>
+    }
+</header>

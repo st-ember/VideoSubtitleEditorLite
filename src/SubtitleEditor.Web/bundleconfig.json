@@ -1,0 +1,111 @@
+[
+  {
+    "outputFileName": "wwwroot/js/app.js",
+    "inputFiles": [
+      "Typescripts/App/dist/app.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/subtitle-editor.js",
+    "inputFiles": [
+      "Typescripts/SubtitleEditor/dist/subtitle-editor.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/editor.all.css",
+    "inputFiles": [
+      "wwwroot/css/base.css",
+      "wwwroot/css/editor.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/form.css",
+    "inputFiles": [
+      "Typescripts/App/node_modules/uform-dialog/css/dialog.css",
+      "Typescripts/App/node_modules/uform-dropdown/css/dropdown.css",
+      "Typescripts/App/node_modules/uform-popover/css/popover.css",
+      "Typescripts/App/node_modules/uform-datepicker/css/datepicker.css",
+      "Typescripts/App/node_modules/uform-selector/css/selector.css",
+      "Typescripts/App/node_modules/uform-form/css/form.css",
+      "Typescripts/App/node_modules/uform-form-selector/css/uform-form-selector.css",
+      "Typescripts/App/node_modules/uform-form-datepicker/css/uform-form-datepicker.css",
+      "Typescripts/App/node_modules/uform-form-time/css/uform-form-time.css",
+      "Typescripts/App/node_modules/uform-form-keycode/css/uform-form-keycode.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/form.js",
+    "inputFiles": [
+      "Typescripts/App/node_modules/uform-utility/dist/uform-utility.js",
+      "Typescripts/App/node_modules/uform-api/dist/uform-api.js",
+      "Typescripts/App/node_modules/uform-dialog/dist/uform-dialog.js",
+      "Typescripts/App/node_modules/uform-dropdown/dist/uform-dropdown.js",
+      "Typescripts/App/node_modules/uform-popover/dist/uform-popover.js",
+      "Typescripts/App/node_modules/uform-datepicker/dist/uform-datepicker.js",
+      "Typescripts/App/node_modules/uform-selector/dist/uform-selector.js",
+      "Typescripts/App/node_modules/uform-form/dist/uform-form.js",
+      "Typescripts/App/node_modules/uform-page/dist/uform-page.js",
+      "Typescripts/App/node_modules/uform-form-selector/dist/uform-form-selector.js",
+      "Typescripts/App/node_modules/uform-form-datepicker/dist/uform-form-datepicker.js",
+      "Typescripts/App/node_modules/uform-form-time/dist/uform-form-time.js",
+      "Typescripts/App/node_modules/uform-form-keycode/dist/uform-form-keycode.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/site.all.css",
+    "inputFiles": [
+      "wwwroot/css/site.css",
+      "wwwroot/css/header.css",
+      "wwwroot/css/form.css",
+      "wwwroot/css/self-manage.css",
+      "wwwroot/css/theme.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/site.all.js",
+    "inputFiles": [
+      "wwwroot/js/init.js",
+      "wwwroot/js/form.js",
+      "Typescripts/SubtitleEditor/dist/subtitle-editor.js",
+      "wwwroot/js/app.js",
+      "wwwroot/js/loader.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/form.login.js",
+    "inputFiles": [
+      "Typescripts/App/node_modules/uform-utility/dist/uform-utility.js",
+      "Typescripts/App/node_modules/uform-api/dist/uform-api.js",
+      "Typescripts/App/node_modules/uform-page/dist/uform-page.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/login.js",
+    "inputFiles": [
+      "Typescripts/Login/dist/login.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/login.all.js",
+    "inputFiles": [
+      "wwwroot/js/form.login.js",
+      "wwwroot/js/login.js",
+      "wwwroot/js/loader.login.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/login.min.css",
+    "inputFiles": [
+      "wwwroot/css/login.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/signalr/signalr.js",
+    "inputFiles": [
+      "Typescripts/App/node_modules/@microsoft/signalr/dist/browser/signalr.min.js"
+    ],
+    "minify": {
+      "enabled": false
+    }
+  }
+]

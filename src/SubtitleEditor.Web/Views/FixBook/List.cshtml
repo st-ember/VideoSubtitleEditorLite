@@ -1,0 +1,42 @@
+﻿@using SubtitleEditor.Core.Helpers;
+@using SubtitleEditor.Core.Contexts;
+@using SubtitleEditor.Web.Models.FixBook;
+@using SubtitleEditor.Infrastructure.Services;
+@inject IPermissionService PermissionService
+@model FixBookListViewModel
+@{
+    ViewData["Title"] = "勘誤表";
+    var permissionContext = await PermissionService.GetLoginUserPermissionAsync();
+}
+
+<div class="page-container scrollable full-width@(Model.Pages.Length > 1 ? " with-side-menu" : "")">
+    @if (Model.Pages.Length > 1)
+    {
+        <div class="side-menu-container" role="menu">
+            @foreach (var page in Model.Pages)
+            {
+                <a role="menuitem" asp-route-modelName="@(page.ModelName)" class="@(page.ModelName == Model.ModelName ? "active" : "")">@(Model.ModelName)</a>
+            }
+        </div>
+    }
+    <div class="title-container">
+        <span class="title">勘誤表 (@(Model.ModelName))</span>
+    </div>
+    <div class="board">
+        <div class="page-conditions">
+            <div class="page-condition-group">
+                <button id="refresh-button" type="button" class="primary">
+                    <i class="fa-solid fa-arrows-rotate"></i>重新整理
+                </button>
+                @if (permissionContext.Contains(SystemAction.SaveFixBook))
+                {
+                    <button id="save-button" type="button" class="success">
+                        <i class="fa-solid fa-floppy-disk"></i>儲存
+                    </button>
+                }
+            </div>
+            <input id="model-name-input" type="hidden" asp-for="ModelName"/>
+        </div>
+        <div class="table-container"></div>
+    </div>
+</div>

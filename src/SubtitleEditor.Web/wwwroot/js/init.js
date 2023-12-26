@@ -1,0 +1,2 @@
+﻿window.VIDEOJS_NO_DYNAMIC_STYLE = true;
+window.HELP_IMPROVE_VIDEOJS = false;

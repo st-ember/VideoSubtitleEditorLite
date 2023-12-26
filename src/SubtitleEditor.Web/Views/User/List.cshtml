@@ -1,0 +1,129 @@
+﻿@using SubtitleEditor.Core.Helpers;
+@using SubtitleEditor.Web.Models.User;
+@using SubtitleEditor.Core.Contexts;
+@using SubtitleEditor.Infrastructure.Services;
+@inject IPermissionService PermissionService
+@model UserListViewModel
+@{
+    ViewData["Title"] = "使用者管理";
+    var permissionContext = await PermissionService.GetLoginUserPermissionAsync();
+}
+
+<div class="page-container full-width with-side-menu">
+    <div class="side-menu-container" role="menu">
+        @if (permissionContext.Contains(SystemAction.ListLog))
+        {
+            <a role="menuitem" asp-action="List" asp-controller="Log">系統紀錄</a>
+        }
+        @if (permissionContext.ContainsAny(SystemAction.ShowUserListView, SystemAction.ShowUserGroupListView))
+        {
+            @if (!permissionContext.Contains(SystemAction.ShowUserGroupListView))
+            {
+                <a role="menuitem" asp-action="Entry" asp-controller="User" class="active with-sub-item">使用者</a>
+                <a role="menuitem" asp-action="List" asp-controller="User" class="active small">使用者管理</a>
+            }
+            else if (!permissionContext.Contains(SystemAction.ShowUserListView))
+            {
+                <a role="menuitem" asp-action="Entry" asp-controller="User" class="active with-sub-item">使用者</a>
+                <a role="menuitem" asp-action="List" asp-controller="UserGroup" class="small">權限群組</a>
+            }
+            else
+            {
+                <a role="menuitem" asp-action="Entry" asp-controller="User" class="active with-sub-item">使用者</a>
+                <a role="menuitem" asp-action="List" asp-controller="User" class="active small">使用者管理</a>
+                <a role="menuitem" asp-action="List" asp-controller="UserGroup" class="small">權限群組</a>
+            }
+        }
+        @if (permissionContext.Contains(SystemAction.ListOption))
+        {
+            <a role="menuitem" asp-action="List" asp-controller="Option">系統設定</a>
+        }
+        @if (permissionContext.Contains(SystemAction.ShowSystemStatusView))
+        {
+            <a role="menuitem" asp-action="Index" asp-controller="Status">系統狀態</a>
+        }
+    </div>
+    <div class="title-container">
+        <span class="title">使用者管理</span>
+    </div>
+    <div class="board">
+        <div class="page-conditions">
+            @if (permissionContext.Contains(SystemAction.CreateUser))
+            {
+                <div class="page-condition-group">
+                    <button id="create-button" type="button" class="primary">
+                        <i class="fa-solid fa-plus"></i>建立使用者
+                    </button>
+                </div>
+            }
+            <form id="page-condition" class="page-condition form-element-container inline">
+                <input id="page-input" type="hidden" asp-for="Page" />
+                <input id="page-size-input" type="hidden" asp-for="PageSize" />
+                <input id="total-page-input" type="hidden" value="@(Model.PageModel.TotalPage)" />
+                <input id="order-column-input" type="hidden" asp-for="OrderColumn" />
+                <input id="descending-input" type="hidden" asp-for="Descending" />
+                <input id="condition-status" type="hidden" asp-for="Status" />
+                <div class="form-container">
+                    <label for="condition-keyword">關鍵字</label>
+                    <input id="condition-keyword" type="search" autocomplete="off" width="180" asp-for="Keyword" />
+                </div>
+                <div class="form-container">
+                    <label for="selector-user-status">狀態</label>
+                    <select id="selector-user-status" class="selector">
+                        @foreach (var item in Model.StatusOptions)
+                        {
+                            <option value="@(item.Value)">@(item.Text)</option>
+                        }
+                    </select>
+                </div>
+                <button id="submit-button" type="submit" class="dark">
+                    <i class="fa fa-search"></i>搜尋
+                </button>
+            </form>
+        </div>
+        <div class="table-container">
+            <table id="list-table" border="0">
+                <thead>
+                    <tr>
+                        @{
+                            foreach (var header in Model.Headers)
+                            {
+                                var style = header.Style.Width.HasValue ? $"width: {header.Style.Width}px" : "";
+                                if (header.Sortable)
+                                {
+                                    var ordered = header.Name == Model.OrderColumn;
+                                    var orderClass = $"{(ordered ? " ordered" : "")}{(ordered && Model.Descending ? " descending" : "")}";
+                                    var @class = $"sortable-th{orderClass} {header.Style.Class}";
+                                    <th class="@(@class)"
+                                    @(header.Style.Width.HasValue ? $"width=\"{header.Style.Width}\"" : "")
+                                        align="@(header.Style.Align.ToString().ToLower())"
+                                        colspan="@(header.Style.ColSpan.HasValue ? $"{header.Style.ColSpan.Value}" : "")"
+                                        rowspan="@(header.Style.RowSpan.HasValue ? $"{header.Style.RowSpan.Value}" : "")"
+                                        data-order-target="@(header.Name)"
+                                        data-name="@(header.Name)">
+                                        @(header.Label)
+                                        <span class="arrow"></span>
+                                    </th>
+                                }
+                                else
+                                {
+                                    <th align="@(header.Style.Align.ToString().ToLower())"
+                                    @(header.Style.Width.HasValue ? $"width=\"{header.Style.Width}\"" : "")
+                                        colspan="@(header.Style.ColSpan.HasValue ? $"{header.Style.ColSpan.Value}" : "")"
+                                        rowspan="@(header.Style.RowSpan.HasValue ? $"{header.Style.RowSpan.Value}" : "")"
+                                        data-name="@(header.Name)"
+                                        class="@(header.Style.Class)">
+                                        @(header.Label)
+                                    </th>
+                                }
+                            }
+                        }
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="pagination-container"></div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{
+    "name": "video-subtitle-editor",
+    "version": "1.0.0",
+    "author": "Frank Tsai",
+    "description": "Video subtitle editor.",
+    "main": "./dist/subtitle-editor.js",
+    "types": "./dist/subtitle-editor.d.ts",
+    "dependencies": {
+        "uform-utility": "file:C:/Users/frank/repo/Form/uform-utility",
+        "uform-dialog": "file:C:/Users/frank/repo/Form/uform-dialog",
+        "uform-form": "file:C:/Users/frank/repo/Form/uform-form",
+        "uform-form-time": "file:C:/Users/frank/repo/Form/uform-form-time"
+    },
+    "devDependencies": {
+        "uform-api": "file:C:/Users/frank/repo/Form/uform-api",
+        "uform-dropdown": "file:C:/Users/frank/repo/Form/uform-dropdown",
+        "uform-popover": "file:C:/Users/frank/repo/Form/uform-popover"
+    }
+}

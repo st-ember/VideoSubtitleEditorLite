@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>93216e20-0e43-4eb3-9a18-c7bb841d52c0</UserSecretsId>
+	<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <Configurations>Debug;Release;Staging</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.16" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Typescripts\Login\" />
+    <Folder Include="wwwroot\lib\signalr\" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Compile Remove="Storage\**" />
+	<Content Remove="Storage\**" />
+	<Content Remove="Typescripts\**" />
+	<EmbeddedResource Remove="Storage\**" />
+	<None Remove="Storage\**" />
+	<Content Remove="bundleconfig.json" />
+	<Content Remove="appsettings.Development.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<None Include="bundleconfig.json" />
+	<None Include="appsettings.Development.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SubtitleEditor.Web.Infrastructure\SubtitleEditor.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\SubtitleEditor.Worker.Infrastructure\SubtitleEditor.Worker.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="FFMpeg\ffmpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="FFMpeg\ffmpeg.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="FFMpeg\ffprobe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="FFMpeg\ffprobe.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

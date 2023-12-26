@@ -1,0 +1,28 @@
+{
+    "name": "subtitle-manager-app",
+    "version": "1.0.0",
+    "author": "Frank Tsai",
+    "description": "Video subtitle manager webapp.",
+    "main": "./dist/app.js",
+    "types": "./dist/app.d.ts",
+    "dependencies": {
+        "@microsoft/signalr": "^7.0.10",
+        "uform-api": "file:C:/Users/frank/repo/Form/uform-api",
+        "uform-dialog": "file:C:/Users/frank/repo/Form/uform-dialog",
+        "uform-dropdown": "file:C:/Users/frank/repo/Form/uform-dropdown",
+        "uform-form": "file:C:/Users/frank/repo/Form/uform-form",
+        "uform-form-datepicker": "file:C:/Users/frank/repo/Form/uform-form-datepicker",
+        "uform-form-keycode": "file:C:/Users/frank/repo/Form/uform-form-keycode",
+        "uform-form-selector": "file:C:/Users/frank/repo/Form/uform-form-selector",
+        "uform-form-time": "file:C:/Users/frank/repo/Form/uform-form-time",
+        "uform-page": "file:C:/Users/frank/repo/Form/uform-page",
+        "uform-popover": "file:C:/Users/frank/repo/Form/uform-popover",
+        "uform-utility": "file:C:/Users/frank/repo/Form/uform-utility",
+        "video-subtitle-editor": "file:../SubtitleEditor"
+    },
+    "devDependencies": {
+        "eslint": "^8.54.0",
+        "uform-datepicker": "file:C:/Users/frank/repo/Form/uform-datepicker",
+        "uform-selector": "file:C:/Users/frank/repo/Form/uform-selector"
+    }
+}

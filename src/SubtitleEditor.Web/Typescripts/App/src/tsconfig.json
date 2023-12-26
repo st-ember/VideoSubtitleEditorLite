@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "module": "AMD",
+        "strict": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "../dist/app.js",
+        "declaration": true,
+        "composite": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitBOM": true,
+        "lib": ["ES2017", "DOM"],
+        "baseUrl": ".",
+        "paths": {
+            "uform-utility": ["../node_modules/uform-utility"],
+            "uform-api": ["../node_modules/uform-api"],
+            "uform-dialog": ["../node_modules/uform-dialog"],
+            "uform-dropdown": ["../node_modules/uform-dropdown"],
+            "uform-popover": ["../node_modules/uform-popover"],
+            "uform-form": ["../node_modules/uform-form"],
+            "uform-form-selector": ["../node_modules/uform-form-selector"],
+            "uform-form-datepicker": ["../node_modules/uform-form-datepicker"],
+            "uform-form-time": ["../node_modules/uform-form-time"],
+            "uform-form-keycode": ["../node_modules/uform-form-keycode"],
+            "uform-page": ["../node_modules/uform-page"],
+            "SubtitleEditor": ["../../SubtitleEditor"]
+        }
+    },
+    "include": [
+        "**/*.ts"
+    ]
+}

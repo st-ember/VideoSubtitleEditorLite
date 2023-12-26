@@ -1,0 +1,158 @@
+﻿@using SubtitleEditor.Core.Helpers;
+@using SubtitleEditor.Core.Contexts;
+@using SubtitleEditor.Web.Models.Topic;
+@using SubtitleEditor.Infrastructure.Services;
+@inject IPermissionService PermissionService
+@model TopicListViewModel
+@{
+    ViewData["Title"] = "單集管理";
+    var permissionContext = await PermissionService.GetLoginUserPermissionAsync();
+}
+
+<div class="page-container full-width">
+    <div class="title-container">
+        <span class="title">單集管理</span>
+    </div>
+    <div class="board">
+        <div class="page-conditions">
+            @if (permissionContext.ContainsAny(SystemAction.CreateTopic, SystemAction.CreateTopics))
+            {
+                <div class="page-condition-group">
+                    @if (permissionContext.Contains(SystemAction.CreateTopic))
+                    {
+                        <button id="create-button" type="button" class="primary">
+                            <i class="fa-solid fa-plus"></i>建立新單集
+                        </button>
+                    }
+                    @if (permissionContext.ContainsAll(SystemAction.CreateTopic, SystemAction.CreateTopics))
+                    {
+                        <a id="batch-create-button" class="button primary" asp-controller="TopicCreation" asp-action="Batch" target="_blank">
+                            <i class="fa-solid fa-plus"></i>批次建立新單集
+                        </a>
+                    }
+                </div>
+            }
+            <form id="page-condition" class="page-condition form-element-container inline">
+                <input id="page-input" type="hidden" asp-for="Page" />
+                <input id="page-size-input" type="hidden" asp-for="PageSize" />
+                <input id="total-page-input" type="hidden" value="@(Model.PageModel.TotalPage)" />
+                <input id="order-column-input" type="hidden" asp-for="OrderColumn" />
+                <input id="descending-input" type="hidden" asp-for="Descending" />
+                <input id="condition-topic-status" type="hidden" asp-for="TopicStatus" />
+                <input id="condition-asr-status" type="hidden" asp-for="AsrMediaStatus" />
+                <input id="condition-convert-status" type="hidden" asp-for="ConvertMediaStatus" />
+                <div class="form-container">
+                    <label for="condition-keyword">名稱/副檔名</label>
+                    <input id="condition-keyword" type="search" autocomplete="off" width="180" asp-for="Keyword" />
+                </div>
+                <div class="form-container date-range-container">
+                    <label for="condition-start">建立時間</label>
+                    <input id="condition-start" type="text" class="datepicker" autocomplete="off" asp-for="Start" range-end="#condition-end" data-firstDayOfWeek="1" />
+                    <label for="condition-start" class="date-input-addon"></label>
+                    <span class="form-text">至</span>
+                    <input id="condition-end" type="text" class="datepicker" autocomplete="off" asp-for="End" range-start="#condition-start" data-firstDayOfWeek="1" />
+                    <label for="condition-end" class="date-input-addon"></label>
+                </div>
+                <div class="form-container">
+                    <label for="selector-topic-status">單集狀態</label>
+                    <select id="selector-topic-status" class="selector">
+                        @foreach (var item in Model.TopicStatusOptions)
+                        {
+                            <option value="@(item.Value)">@(item.Text)</option>
+                        }
+                    </select>
+                </div>
+                @{
+                    if(Model.AsrAccess)
+                    {
+                        <div class="form-container">
+                            <label for="selector-asr-status">ASR 狀態</label>
+                            <select id="selector-asr-status" class="selector">
+                                @foreach (var item in Model.AsrMediaStatusOptions)
+                                {
+                                    <option value="@(item.Value)">@(item.Text)</option>
+                                }
+                            </select>
+                        </div>
+                    }
+                }
+            
+                <div class="form-container">
+                    <label for="selector-convert-status">轉檔狀態</label>
+                    <select id="selector-convert-status" class="selector">
+                        @foreach (var item in Model.ConvertMediaStatusOptions)
+                        {
+                            <option value="@(item.Value)">@(item.Text)</option>
+                        }
+                    </select>
+                </div>
+                <button id="submit-button" type="submit" class="dark">
+                    <i class="fa fa-search"></i><span>搜尋</span>
+                </button>
+            </form>
+            @if (permissionContext.ContainsAny(SystemAction.RemoveTopic, SystemAction.ArchiveTopic))
+            {
+                <div id="batch-command-group" class="page-condition-group">
+                    <div class="dropdown-button-container">
+                        @if (permissionContext.Contains(SystemAction.RemoveTopic))
+                        {
+                            <a id="remove-checked-anchor" class="dropdown-option danger-hover"><i class="fa-regular fa-trash-can"></i><span class="title">移除所選單集</span></a>
+                        }
+                        @if (permissionContext.Contains(SystemAction.ArchiveTopic))
+                        {
+                            <a id="archive-checked-anchor" class="dropdown-option"><i class="fa-solid fa-box-archive"></i><span class="title">封存所選單集</span></a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="table-container">
+            <table id="list-table" border="0">
+                <thead>
+                    <tr>
+                        <th>
+                            <input id="data-check-all" type="checkbox" name="all">
+                        </th>
+                        @{
+                            foreach (var header in Model.Headers)
+                            {
+                                var style = header.Style.Width.HasValue ? $"width: {header.Style.Width}px" : "";
+                                if (header.Sortable)
+                                {
+                                    var ordered = header.Name == Model.OrderColumn;
+                                    var orderClass = $"{(ordered ? " ordered" : "")}{(ordered && Model.Descending ? " descending" : "")}";
+                                    var @class = $"sortable-th{orderClass} {header.Style.Class} {header.Name}";
+                                    <th class="@(@class)"
+                                        @(header.Style.Width.HasValue ? $"width=\"{header.Style.Width}\"" : "")
+                                        align="@(header.Style.Align.ToString().ToLower())"
+                                        colspan="@(header.Style.ColSpan.HasValue ? $"{header.Style.ColSpan.Value}" : "")"
+                                        rowspan="@(header.Style.RowSpan.HasValue ? $"{header.Style.RowSpan.Value}" : "")"
+                                        data-order-target="@(header.Name)"
+                                        data-name="@(header.Name)">
+                                        @(header.Label)
+                                        <span class="arrow"></span>
+                                    </th>
+                                }
+                                else
+                                {
+                                    var @class = $"{header.Style.Class} {header.Name}";
+                                    <th align="@(header.Style.Align.ToString().ToLower())"
+                                        @(header.Style.Width.HasValue ? $"width=\"{header.Style.Width}\"" : "")
+                                        colspan="@(header.Style.ColSpan.HasValue ? $"{header.Style.ColSpan.Value}" : "")"
+                                        rowspan="@(header.Style.RowSpan.HasValue ? $"{header.Style.RowSpan.Value}" : "")"
+                                        data-name="@(header.Name)"
+                                        class= "@(@class)">
+                                        @(header.Label)
+                                    </th>
+                                }
+                            }
+                        }
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="pagination-container"></div>
+    </div>
+</div>

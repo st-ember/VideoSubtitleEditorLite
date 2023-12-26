@@ -1,0 +1,119 @@
+﻿
+.board {
+    max-width: 400px;
+    height: auto;
+    padding: 20px 20px 0 20px;
+    margin: 40px auto 40px auto;
+}
+
+.board .title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container > label {
+    width: 80px;
+}
+.form-container > label + input:not([type="radio"]):not([type="checkbox"]), .form-container > label + textarea {
+    width: calc(100% - 95px);
+}
+
+#captcha-input {
+    width: 160px;
+}
+
+#captcha-image, .captcha-image {
+    vertical-align: bottom;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}
+#captcha-image-container {
+    padding-left: 80px;
+}
+.captcah-next-button {
+    margin-bottom: 0;
+}
+
+.button-container {
+    position: relative;
+    width: calc(100% + 40px);
+    border-top: 1px solid #ccc;
+    text-align: right;
+    padding: 20px;
+    margin-left: -20px;
+    margin-top: 5px;
+}
+.button-container > span {
+    display: inline-block;
+    position: relative;
+    color: #777;
+    line-height: 40px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.button-container > span::after {
+    border-top: 1px solid #777;
+}
+.button-container > button {
+    justify-content: center;
+    width: 110px;
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+.info-container {
+    position: relative;
+    width: calc(100% + 40px);
+    color: #555;
+    font-size: 15px;
+    background-color: #f2f2f2;
+    border-top: 1px solid #ccc;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 5px 10px 5px 5px;
+    margin-left: -20px;
+}
+.info-container li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.sm .board, .md .board {
+    padding: 0;
+}
+.sm .board {
+    margin: 0 auto 40px auto;
+}
+.sm .tab-container {
+    padding: 9px 10px 0 10px;
+}
+.sm .tab {
+    padding: 10px 10px 0 10px;
+}
+.sm .tab > .title {
+    margin-left: 105px;
+    margin-bottom: 10px;
+}
+.sm .form-container > label {
+    width: 90px;
+}
+.sm .form-container > label + input:not([type="radio"]):not([type="checkbox"]) {
+    width: calc(100% - 105px);
+}
+.sm .tab .form-note {
+    width: calc(100% - 105px);
+    margin-left: 105px;
+}
+.sm #captcha-image-container {
+    padding-left: 90px;
+}
+.sm .button-container {
+    width: calc(100% + 20px);
+    padding: 10px;
+    margin-left: -10px;
+    margin-top: 0;
+}
+
+.danger {
+    color: #a94442;
+}

@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "module": "AMD",
+        "strict": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "../dist/subtitle-editor.js",
+        "declaration": true,
+        "composite": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitBOM": true,
+        "lib": ["ES2017", "DOM"],
+        "baseUrl": ".",
+        "paths": {
+            "uform-utility": ["../node_modules/uform-utility"],
+            "uform-dialog": ["../node_modules/uform-dialog"],
+            "uform-form": ["../node_modules/uform-form"],
+            "uform-form-time": ["../node_modules/uform-form-time"]
+        }
+    },
+    "include": [
+        "**/*.ts"
+    ]
+}

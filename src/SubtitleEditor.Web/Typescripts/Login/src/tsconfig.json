@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "module": "AMD",
+        "strict": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "../dist/login.js",
+        "declaration": true,
+        "composite": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitBOM": true,
+        "lib": ["ES2017", "DOM"],
+        "baseUrl": ".",
+        "paths": {
+            "uform-utility": ["../node_modules/uform-utility"],
+            "uform-api": ["../node_modules/uform-api"],
+            "uform-page": ["../node_modules/uform-page"]
+        }
+    },
+    "include": [
+        "**/*.ts"
+    ]
+}
