@@ -1,0 +1,2 @@
+# VideoSubtitleEditor
+與金湛合作開發的影片字幕編輯系統
