@@ -1,0 +1,100 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitleEditor.Core", "SubtitleEditor.Core\SubtitleEditor.Core.csproj", "{E1C59F5E-EE6A-4C82-9695-3FBB0C67552B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitleEditor.Infrastructure", "SubtitleEditor.Infrastructure\SubtitleEditor.Infrastructure.csproj", "{3CE744B6-2205-4277-B91C-803C6953988B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitleEditor.Database", "SubtitleEditor.Database\SubtitleEditor.Database.csproj", "{C5BE08BC-BD88-444A-97CF-9E2B84B1B17E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitleEditor.Web", "SubtitleEditor.Web\SubtitleEditor.Web.csproj", "{1B651BFA-E77B-4BF3-8AC8-1EFF3A16A61D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitleEditor.Web.Infrastructure", "SubtitleEditor.Web.Infrastructure\SubtitleEditor.Web.Infrastructure.csproj", "{62D7BD5B-3C07-4BFD-9DFD-3CDEF20457C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitleEditor.Worker.Infrastructure", "SubtitleEditor.Worker.Infrastructure\SubtitleEditor.Worker.Infrastructure.csproj", "{9A21F790-C51C-4E4D-AA34-BFED1F86EF12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitleEditor.Infrastructure.Test", "SubtitleEditor.Infrastructure.Test\SubtitleEditor.Infrastructure.Test.csproj", "{9FBDFA89-4A0D-4A0B-AF91-0192C16BF507}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項目", "{30DB6E93-2992-455E-A3A0-A384D5114E8E}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		cuda.dockerfile = cuda.dockerfile
+		dockerfile = dockerfile
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitleEditor.ActivationKeyGenerator", "SubtitleEditor.ActivationKeyGenerator\SubtitleEditor.ActivationKeyGenerator.csproj", "{44181FA0-9BFF-4CE3-9896-3F1AEE5EBE99}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitleEditor.ActivationKeyGenerator.Infrastructure", "SubtitleEditor.ActivationKeyGenerator.Infrastructure\SubtitleEditor.ActivationKeyGenerator.Infrastructure.csproj", "{06EC11B0-3DCB-4DF7-9EDD-1340D56A9AD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1C59F5E-EE6A-4C82-9695-3FBB0C67552B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C59F5E-EE6A-4C82-9695-3FBB0C67552B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C59F5E-EE6A-4C82-9695-3FBB0C67552B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C59F5E-EE6A-4C82-9695-3FBB0C67552B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1C59F5E-EE6A-4C82-9695-3FBB0C67552B}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{E1C59F5E-EE6A-4C82-9695-3FBB0C67552B}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{3CE744B6-2205-4277-B91C-803C6953988B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE744B6-2205-4277-B91C-803C6953988B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE744B6-2205-4277-B91C-803C6953988B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE744B6-2205-4277-B91C-803C6953988B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE744B6-2205-4277-B91C-803C6953988B}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{3CE744B6-2205-4277-B91C-803C6953988B}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{C5BE08BC-BD88-444A-97CF-9E2B84B1B17E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5BE08BC-BD88-444A-97CF-9E2B84B1B17E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5BE08BC-BD88-444A-97CF-9E2B84B1B17E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5BE08BC-BD88-444A-97CF-9E2B84B1B17E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5BE08BC-BD88-444A-97CF-9E2B84B1B17E}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{C5BE08BC-BD88-444A-97CF-9E2B84B1B17E}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{1B651BFA-E77B-4BF3-8AC8-1EFF3A16A61D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B651BFA-E77B-4BF3-8AC8-1EFF3A16A61D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B651BFA-E77B-4BF3-8AC8-1EFF3A16A61D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B651BFA-E77B-4BF3-8AC8-1EFF3A16A61D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B651BFA-E77B-4BF3-8AC8-1EFF3A16A61D}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{1B651BFA-E77B-4BF3-8AC8-1EFF3A16A61D}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{62D7BD5B-3C07-4BFD-9DFD-3CDEF20457C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62D7BD5B-3C07-4BFD-9DFD-3CDEF20457C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62D7BD5B-3C07-4BFD-9DFD-3CDEF20457C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62D7BD5B-3C07-4BFD-9DFD-3CDEF20457C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62D7BD5B-3C07-4BFD-9DFD-3CDEF20457C9}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{62D7BD5B-3C07-4BFD-9DFD-3CDEF20457C9}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{9A21F790-C51C-4E4D-AA34-BFED1F86EF12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A21F790-C51C-4E4D-AA34-BFED1F86EF12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A21F790-C51C-4E4D-AA34-BFED1F86EF12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A21F790-C51C-4E4D-AA34-BFED1F86EF12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A21F790-C51C-4E4D-AA34-BFED1F86EF12}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{9A21F790-C51C-4E4D-AA34-BFED1F86EF12}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{9FBDFA89-4A0D-4A0B-AF91-0192C16BF507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FBDFA89-4A0D-4A0B-AF91-0192C16BF507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FBDFA89-4A0D-4A0B-AF91-0192C16BF507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FBDFA89-4A0D-4A0B-AF91-0192C16BF507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FBDFA89-4A0D-4A0B-AF91-0192C16BF507}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{9FBDFA89-4A0D-4A0B-AF91-0192C16BF507}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{44181FA0-9BFF-4CE3-9896-3F1AEE5EBE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44181FA0-9BFF-4CE3-9896-3F1AEE5EBE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44181FA0-9BFF-4CE3-9896-3F1AEE5EBE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44181FA0-9BFF-4CE3-9896-3F1AEE5EBE99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44181FA0-9BFF-4CE3-9896-3F1AEE5EBE99}.Staging|Any CPU.ActiveCfg = Debug|Any CPU
+		{44181FA0-9BFF-4CE3-9896-3F1AEE5EBE99}.Staging|Any CPU.Build.0 = Debug|Any CPU
+		{06EC11B0-3DCB-4DF7-9EDD-1340D56A9AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06EC11B0-3DCB-4DF7-9EDD-1340D56A9AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06EC11B0-3DCB-4DF7-9EDD-1340D56A9AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06EC11B0-3DCB-4DF7-9EDD-1340D56A9AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06EC11B0-3DCB-4DF7-9EDD-1340D56A9AD3}.Staging|Any CPU.ActiveCfg = Debug|Any CPU
+		{06EC11B0-3DCB-4DF7-9EDD-1340D56A9AD3}.Staging|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30BC9878-CB42-40DD-8D6C-F744EB47E074}
+	EndGlobalSection
+EndGlobal
