@@ -20,11 +20,11 @@ public class EditorContext : DbContextBase<EditorContext>
             // --------------------------
             // 1.0.24 新增 FixBooks
             Database.ExecuteSqlRaw(
-                "CREATE TABLE IF NOT EXISTS \"FixBooks\" (" +
-                "\"_id\" CHAR(36) NOT NULL UNIQUE, \"_model\" NVARCHAR(256), " +
-                "\"_original\" NVARCHAR(256) NOT NULL, \"_correction\" NVARCHAR(256) NOT NULL, " +
-                "\"_create\" TEXT NOT NULL, CONSTRAINT \"PK_FixBooks\" PRIMARY KEY(\"_id\"));"
-                );
+               "CREATE TABLE IF NOT EXISTS \"FixBooks\" (" +
+               "\"_id\" CHAR(36) NOT NULL UNIQUE, \"_model\" NVARCHAR(256), " +
+               "\"_original\" NVARCHAR(256) NOT NULL, \"_correction\" NVARCHAR(256) NOT NULL, " +
+               "\"_create\" TEXT NOT NULL, CONSTRAINT \"PK_FixBooks\" PRIMARY KEY(\"_id\"));"
+               );
 
             // 1.0.25 在 Topics 資料表增加 _asr_task 欄位。
             ExecuteSqlRawQuietly("ALTER TABLE 'Topics' ADD COLUMN '_asr_task' TEXT; " +

@@ -38,6 +38,9 @@ public class ActivationData
     [JsonPropertyName("edn")]
     public string Editions { get; set; } = string.Empty;
 
+    [JsonPropertyName("aac")]
+    public bool AsrAccess { get; set; }
+
     /// <summary>
     /// 發行日期，yyyy-MM-dd 格式的文字。
     /// </summary>

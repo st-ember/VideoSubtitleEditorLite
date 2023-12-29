@@ -41,15 +41,15 @@ public class ActivationService
         }
     }
 
-    public static ActivationData Generate(string publisher, string target, string editions, DateTime? due = null, uint? calCount = null, string? meta = null)
+    public static ActivationData Generate(string publisher, string target, bool asrAccess, DateTime? due = null, uint? calCount = null, string? editions = null, string? meta = null)
     {
         return new ActivationData
         {
-            Version = 2,
+            Version = 1,
             Publisher = publisher,
             Target = target,
             Editions = editions,
-            // Editions以AsrAccess使用
+            AsrAccess = asrAccess,
             Date = DateTime.Today.ToString("yyyy-MM-dd"),
             DueDate = due,
             CalCount = calCount ?? 0,

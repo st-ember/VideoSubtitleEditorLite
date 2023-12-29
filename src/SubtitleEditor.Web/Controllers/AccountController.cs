@@ -51,8 +51,9 @@ public class AccountController : AuthorizedController
         var activationData = _activationService.ResolveKey(key);
         var asrAccess = _activationService.CheckAsrAccess(activationData);
         await _loginService.LogoutAsync();
+
         ViewData["ReturnUrl"] = returnUrl;
-        return View(new LoginViewModel());
+        return View(new LoginViewModel(asrAccess.Message == "Full", activationData != null));
     }
 
     [AllowAnonymous]

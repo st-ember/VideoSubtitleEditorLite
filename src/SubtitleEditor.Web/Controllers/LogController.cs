@@ -47,6 +47,14 @@ public class LogController : AuthorizedController
         {
             model.AsrAccess = false;
         }
+        if (activationData != null)
+        {
+            model.HasKey = true;
+        }
+        else
+        {
+            model.HasKey = false;
+        }
 
         return View(model);
     }

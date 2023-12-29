@@ -35,7 +35,7 @@ if (targetAction == 1)
 
     string publisher;
     string target;
-    string editions;
+    bool asrAccess;
     DateTime? due = null;
     uint calCount = 0;
 
@@ -85,18 +85,18 @@ if (targetAction == 1)
         Console.WriteLine("版本別：");
         Console.WriteLine("設定ASR版本請按[1]，設定限制權限版本請按[2]");
 
-        var editionsText = Console.ReadLine();
-        uint editionsOutText;
+        var asrAccessText = Console.ReadLine();
+        uint asrAccessOutText;
 
-        if (uint.TryParse(editionsText, out editionsOutText) && (editionsOutText == 1 || editionsOutText == 2))
+        if (uint.TryParse(asrAccessText, out asrAccessOutText) && (asrAccessOutText == 1 || asrAccessOutText == 2))
         {
-            if (editionsOutText == 1)
+            if (asrAccessOutText == 1)
             {
-                editions = "Full";
+                asrAccess = true;
                 break;
-            } else if (editionsOutText == 2)
+            } else if (asrAccessOutText == 2)
             {
-                editions = "Limited";
+                asrAccess = false;
                 break;
             }
         }
@@ -163,7 +163,7 @@ if (targetAction == 1)
 
     try
     {
-        var activationData = ActivationService.Generate(publisher, target, editions, due, calCount);
+        var activationData = ActivationService.Generate(publisher, target, asrAccess, due, calCount);
         var key = ActivationService.GenerateKey(activationData);
 
         Console.Clear();
@@ -197,6 +197,8 @@ else if (targetAction == 2)
             Console.WriteLine($"Publisher: {activationData.Publisher}");
             Console.WriteLine($"Target:    {activationData.Target}");
             Console.WriteLine($"Editions:  {(activationData.Editions != null ? string.Join(", ", activationData.Editions) : "-")}");
+            Console.WriteLine($"AsrAccess: {(activationData.AsrAccess == false && activationData.Version == 1 ? true : activationData.AsrAccess)}"); 
+            // 若為V1，ASR權限回傳true。之後版本以金鑰資訊回傳。
             Console.WriteLine($"Date:      {activationData.PublishDate:yyyy-MM-dd}");
             Console.WriteLine($"DueDate:   {(activationData.DueDate.HasValue ? activationData.DueDate.Value.ToString("yyyy-MM-dd") : "無限制")}");
             Console.WriteLine($"CalCount:  {(activationData.CalCount > 0 ? activationData.CalCount.ToString() : "無限制")}");
