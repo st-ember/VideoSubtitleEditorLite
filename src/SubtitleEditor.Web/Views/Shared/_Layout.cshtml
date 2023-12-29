@@ -15,7 +15,18 @@
         <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
         <script src="~/lib/polyfills/polyfills.js" asp-append-version="true"></script>
         @{
-            if (Model != null && Model.AsrAccess != null && !Model.AsrAccess)
+            var hasKeyProperty = Model.GetType().GetProperty("HasKey");
+            if (hasKeyProperty == null || hasKeyProperty.GetValue(Model) == null) // means it has a key, so evaluate what kind of key
+            {
+                if (!Model.AsrAccess) // add limited css if true
+                {
+                    <link rel="stylesheet" href="~/css/asr-limited.css" asp-append-version="true" />
+                }
+            } else if(!Model.HasKey) // if come here, means no key
+            {
+                <link rel="stylesheet" href="~/css/no-key.css" asp-append-version="true" />
+            }
+            else if (!Model.AsrAccess) // add limited css if true
             {
                 <link rel="stylesheet" href="~/css/asr-limited.css" asp-append-version="true" />
             }
@@ -25,12 +36,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" crossorigin="anonymous" referrerpolicy="no-referrer" asp-fallback-src="./lib/require/require.min.js" asp-fallback-test="window.require"></script>
     </environment>
     <environment include="Production">
-        <link rel="stylesheet" href="~/lib/fontawesome/all.min.css" asp-append-version="true" asp-fallback-src="./lib/fontawesome/all.min.css" />
-        <link rel="stylesheet" href="~/css/site.all.min.css" asp-append-version="true" />
-        <script src="~/lib/polyfills/polyfills.js" asp-append-version="true"></script>
-        <script src="~/lib/videojs/videojs.min.js" asp-append-version="true"></script>
-        <script src="~/lib/videojs/videojs-contrib-hlsjs.min.js" asp-append-version="true"></script>
-        <script src="~/lib/require/require.min.js" asp-append-version="true"></script>
+        <link rel="stylesheet" href="~/subtitle-editor/lib/fontawesome/all.min.css" asp-append-version="true" asp-fallback-src="./lib/fontawesome/all.min.css" />
+        <link rel="stylesheet" href="~/subtitle-editor/css/site.all.min.css" asp-append-version="true" />
+        <script src="~/subtitle-editor/lib/polyfills/polyfills.js" asp-append-version="true"></script>
+        <script src="~/subtitle-editor/lib/videojs/videojs.min.js" asp-append-version="true"></script>
+        <script src="~/subtitle-editor/lib/videojs/videojs-contrib-hlsjs.min.js" asp-append-version="true"></script>
+        <script src="~/subtitle-editor/lib/require/require.min.js" asp-append-version="true"></script>
     </environment>
     @await RenderSectionAsync("Stylies", required: false)
 </head>
@@ -59,7 +70,8 @@
         <script src="~/js/loader.js"></script>
     </environment>
     <environment include="Production">
-        <script src="~/js/site.all.min.js" asp-append-version="true"></script>
+        <script src="~/subtitle-editor/js/site.all.min.js" asp-append-version="true"></script>
+        <script src="~/subtitle-editor/js/site.all.js" asp-append-version="true"></script>
     </environment>
 </body>
 </html>

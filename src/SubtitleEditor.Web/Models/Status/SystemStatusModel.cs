@@ -21,4 +21,5 @@ public class SystemStatusModel
     public uint? CalCount { get; set; }
     public string ActivationEnd { get; set; } = string.Empty;
     public bool AsrAccess { get; set; } = false;
+    public bool? HasKey { get; set; }
 }

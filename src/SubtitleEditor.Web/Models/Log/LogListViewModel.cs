@@ -52,4 +52,5 @@ public class LogListViewModel : PageableViewModel<LogListPrimaryData>, ILogListC
     public string? User { get; set; }
     public bool? IsActionSuccess { get; set; }
     public bool? AsrAccess { get; set; } = false;
+    public bool? HasKey { get; set; }
 }

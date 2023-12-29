@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.Logging;
 using SubtitleEditor.Core.Contexts;
 using SubtitleEditor.Database;
 using SubtitleEditor.Infrastructure;
@@ -99,6 +100,16 @@ provider.Mappings.Add(".m3u8", "application/x-mpegURL");
 provider.Mappings.Add(".ts", "video/MP2T");
 
 var app = builder.Build();
+app.UsePathBase("/subtitle-editor");
+app.Use(async (context, next) =>
+{
+    var logger = app.Services.GetRequiredService<ILogger<Program>>();
+    // Log the PathBase here
+    logger.LogInformation($"Request PathBase: {context.Request.PathBase}");
+    await next.Invoke();
+});
+
+//app.UseFileServer(enableDirectoryBrowsing: true);
 
 using (var scope = app.Services.CreateScope())
 {
@@ -145,6 +156,8 @@ else
 }
 
 app.UseSession();
+
+
 
 if (useSSL)
 {
@@ -209,12 +222,16 @@ app.Use(async (context, next) =>
     await next();
 });
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    ContentTypeProvider = provider
-});
+
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    ContentTypeProvider = provider
+//});
 
 app.UseStaticFiles();
+
+
+
 app.UseRouting();
 app.UseCors();
 app.UseAuthentication();

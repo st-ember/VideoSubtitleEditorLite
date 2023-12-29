@@ -21,13 +21,16 @@
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
       "publishAllPorts": true,
       "useSSL": true
+    },
+    "Profile 1": {
+      "commandName": "IIS"
     }
   },
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:63852",
+      "applicationUrl": "http://localhost:63852/",
       "sslPort": 44346
     }
   }

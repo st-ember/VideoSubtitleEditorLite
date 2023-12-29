@@ -1,0 +1,50 @@
+﻿header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 50px;
+    background-color: #858180 !important;
+    padding: 0 20px;
+}
+
+
+#self-manage-user-name::after {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    content: "";
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #858180) !important;
+}
+
+#self-manage {
+    display: block;
+    position: relative;
+    right: 0;
+    top: 0;
+    float: right;
+    height: 50px;
+    font-size: 0;
+    box-sizing: border-box;
+    border-right: 1px solid #555;
+}
+
+    #self-manage > .user-item {
+        display: inline-block;
+        position: relative;
+        height: 50px;
+        vertical-align: bottom;
+        color: #ccc;
+        font-size: 15px;
+        line-height: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+        background-color: #858180;
+        border-left: 1px solid #555;
+        padding: 15px;
+    }
