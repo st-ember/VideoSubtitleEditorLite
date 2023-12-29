@@ -2,7 +2,7 @@
 require.config({
     baseUrl: '/',
     paths: {
-        '@microsoft/signalr': '/lib/signalr/signalr'
+        '@microsoft/signalr': `/lib/signalr/signalr`
     }
 })
 

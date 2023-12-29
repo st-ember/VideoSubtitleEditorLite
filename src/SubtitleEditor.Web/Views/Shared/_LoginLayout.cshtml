@@ -64,15 +64,18 @@
         </div>
     </footer>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        window.ROOT = "@Url.Content("~")"
+    </script>
     <environment exclude="Production">
         <script src="~/js/form.login.js"></script>
         <script src="~/js/login.js"></script>
         <script src="~/js/loader.login.js"></script>
     </environment>
     <environment include="Production">
-        <script src="~/js/form.login.js" asp-append-version="true"></script>
-        <script src="~/js/login.js" asp-append-version="true"></script>
-        <script src="~/js/loader.login.js" asp-append-version="true"></script>
+        <script src="~/subtitle-editor/js/form.login.js" asp-append-version="true"></script>
+        <script src="~/subtitle-editor/js/login.js" asp-append-version="true"></script>
+        <script src="~/subtitle-editor/js/loader.login.js" asp-append-version="true"></script>
 
 @*         <script src="~/js/login.all.min.js" asp-append-version="true"></script>
  *@    </environment>

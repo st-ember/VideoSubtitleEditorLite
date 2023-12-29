@@ -33,7 +33,7 @@
         }
         <script src="https://unpkg.com/video.js@8.5.2/dist/video.min.js" asp-fallback-src="./lib/videojs/videojs.min.js" asp-fallback-test="window.videojs"></script>
         <script src="https://unpkg.com/videojs-contrib-hls.js@3.2.0/dist/videojs-contrib-hlsjs.min.js" asp-fallback-src="./lib/videojs/videojs-contrib-hlsjs.min.js" asp-fallback-test="window.videojs"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" crossorigin="anonymous" referrerpolicy="no-referrer" asp-fallback-src="./lib/require/require.min.js" asp-fallback-test="window.require"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" crossorigin="anonymous" referrerpolicy="no-referrer" asp-fallback-src="~/lib/require/require.min.js" asp-fallback-test="window.require"></script>
     </environment>
     <environment include="Production">
         <link rel="stylesheet" href="~/subtitle-editor/lib/fontawesome/all.min.css" asp-append-version="true" asp-fallback-src="./lib/fontawesome/all.min.css" />
@@ -61,6 +61,9 @@
             </p>
         </div>
     </footer>
+    <script>
+        window.ROOT = "@Url.Content("~")"
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
     <environment exclude="Production">
         <script src="~/js/init.js"></script>
