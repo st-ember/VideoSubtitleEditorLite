@@ -44,11 +44,29 @@
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;
-    background-color: #2a522d;
+    background-color: #2a522d !important;
     border-left: 1px solid #555;
     padding: 15px;
+}
+
+#self-manage-menu {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: -1px;
+    width: calc(100% + 1px);
+    min-width: 180px;
+    font-size: 0;
+    background-color: #2a522d !important;
+    border: 1px solid #555;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 26;
+    box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-out;
 }
 
 div.table-container table thead tr th.AsrMediaStatus {
     display: none !important;
 }
+

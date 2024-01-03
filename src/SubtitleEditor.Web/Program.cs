@@ -206,15 +206,15 @@ app.Use(async (context, next) =>
     context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
 
     // 如果不是在開發環境(本機)，要加上 CSR Policy。
-    if (!app.Environment.IsDevelopment())
-    {
+        if (!app.Environment.IsDevelopment())
+        {
         // 因為會用到來自 CDN 的 library，所以 CDN 也要加上去。
         context.Response.Headers.Add("Content-Security-Policy",
             "base-uri 'self';default-src 'self';object-src 'none';media-src 'self' blob:;frame-src 'none';img-src 'self' data:;" +
             "frame-ancestors 'none';form-action 'self';" +
             "font-src 'self' https://cdnjs.cloudflare.com data:;" +
             "style-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-wPXhisdsFu1DtHYH1D9W5isSGqS5vIPn6QJWSNLqfCM=';" +
-            "script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com blob: 'sha256-0pvg8ol8mxIrtPPNjDULIMb1tv9qdKrjqUbzufiAI1U=' 'sha256-1cSEbjrR4Sng0qR6JIahu3I9XWRuTZNiifHGXfuieNQ=' 'sha256-lZibAL/LUoVC8wp8c0cstF/6u4aKWhsP3mw2F2mVuE4=';" +
+            "script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com blob: 'sha256-0pvg8ol8mxIrtPPNjDULIMb1tv9qdKrjqUbzufiAI1U=' 'sha256-1cSEbjrR4Sng0qR6JIahu3I9XWRuTZNiifHGXfuieNQ=' 'sha256-lZibAL/LUoVC8wp8c0cstF/6u4aKWhsP3mw2F2mVuE4=' 'sha256-jYnwTMFFgg5wy/ZnFKMVGy9YWjXucmah9KW/ViBJqn8=';" +
             "connect-src 'self'"
             );
     }

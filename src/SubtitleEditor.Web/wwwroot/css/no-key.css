@@ -33,18 +33,35 @@
     border-right: 1px solid #555;
 }
 
-    #self-manage > .user-item {
-        display: inline-block;
-        position: relative;
-        height: 50px;
-        vertical-align: bottom;
-        color: #ccc;
-        font-size: 15px;
-        line-height: 20px;
-        white-space: nowrap;
-        overflow: hidden;
-        box-sizing: border-box;
-        background-color: #858180;
-        border-left: 1px solid #555;
-        padding: 15px;
-    }
+#self-manage > .user-item {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    vertical-align: bottom;
+    color: #ccc;
+    font-size: 15px;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #858180 !important;
+    border-left: 1px solid #555;
+    padding: 15px;
+}
+
+#self-manage-menu {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: -1px;
+    width: calc(100% + 1px);
+    min-width: 180px;
+    font-size: 0;
+    background-color: #858180 !important;
+    border: 1px solid #555;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 26;
+    box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-out;
+}

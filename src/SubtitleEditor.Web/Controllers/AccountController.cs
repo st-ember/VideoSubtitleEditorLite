@@ -45,7 +45,7 @@ public class AccountController : AuthorizedController
 
     [AllowAnonymous]
     [HttpGet]
-    public async Task<IActionResult> Login(string returnUrl = @"/")
+    public async Task<IActionResult> Login(string returnUrl = "/")
     {
         var key = await _systemOptionService.GetContentAsync(SystemOptionNames.ActivationKey);
         var activationData = _activationService.ResolveKey(key);

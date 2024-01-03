@@ -14,12 +14,18 @@
         <link rel="stylesheet" href="@Url.Content("~/css/theme.css")" asp-append-version="true" />
         <link rel="stylesheet" href="@Url.Content("~/css/login.css")" asp-append-version="true" />
         @{
-            var hasKeyProperty = Model.GetType().GetProperty("HasKey");
-            if (!Model.HasKey)
+            if (Model.GetType().GetProperty("HasKey") == null || Model.GetType().GetProperty("HasKey").GetValue(Model) == null) // means it has a key, so evaluate what kind of key
+            {
+                if (!Model.AsrAccess) // add limited css if true
+                {
+                    <link rel="stylesheet" href="~/css/asr-limited.css" asp-append-version="true" />
+                }
+            }
+            else if (!Model.HasKey) // if come here, means no key
             {
                 <link rel="stylesheet" href="~/css/no-key.css" asp-append-version="true" />
             }
-            else if (!Model.AsrAccess)
+            else if (!Model.AsrAccess) // add limited css if true
             {
                 <link rel="stylesheet" href="~/css/asr-limited.css" asp-append-version="true" />
             }
@@ -29,11 +35,18 @@
     </environment>
     <environment include="Production">
         @{
-            if (!Model.HasKey)
+            if (Model.GetType().GetProperty("HasKey") == null || Model.GetType().GetProperty("HasKey").GetValue(Model) == null) // means it has a key, so evaluate what kind of key
+            {
+                if (!Model.AsrAccess) // add limited css if true
+                {
+                    <link rel="stylesheet" href="~/css/asr-limited.css" asp-append-version="true" />
+                }
+            }
+            else if (!Model.HasKey) // if come here, means no key
             {
                 <link rel="stylesheet" href="~/css/no-key.css" asp-append-version="true" />
             }
-            else if (!Model.AsrAccess)
+            else if (!Model.AsrAccess) // add limited css if true
             {
                 <link rel="stylesheet" href="~/css/asr-limited.css" asp-append-version="true" />
             }
@@ -64,20 +77,18 @@
         </div>
     </footer>
     @await RenderSectionAsync("Scripts", required: false)
-    <script>
-        window.ROOT = "@Url.Content("~")"
-    </script>
     <environment exclude="Production">
         <script src="~/js/form.login.js"></script>
         <script src="~/js/login.js"></script>
         <script src="~/js/loader.login.js"></script>
     </environment>
     <environment include="Production">
-        <script src="~/subtitle-editor/js/form.login.js" asp-append-version="true"></script>
-        <script src="~/subtitle-editor/js/login.js" asp-append-version="true"></script>
-        <script src="~/subtitle-editor/js/loader.login.js" asp-append-version="true"></script>
+        <script src="~/js/form.login.js" asp-append-version="true"></script>
+        <script src="~/js/login.js" asp-append-version="true"></script>
+        <script src="~/js/loader.login.js" asp-append-version="true"></script>
 
 @*         <script src="~/js/login.all.min.js" asp-append-version="true"></script>
  *@    </environment>
+    <script>window.ROOT = "@Url.Content("~")"</script>
 </body>
 </html>
