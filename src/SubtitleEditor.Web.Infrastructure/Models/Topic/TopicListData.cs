@@ -20,7 +20,7 @@ public class TopicListData : IWithId<Guid>
     public StreamMediaStatus MediaStatus { get; set; }
     public AsrMediaStatus AsrMediaStatus { get; set; }
     public ConvertMediaStatus ConvertMediaStatus { get; set; } 
-    public CreatedOption CreatedOption { get; set; }
+    public string? CreateType { get; set; }
     public string AsrMediaStatusText { get; set; } = string.Empty;
     public string ConvertMediaStatusText { get; set; } = string.Empty;
     public string CreatedOptionText { get; set; } = string.Empty;
@@ -29,7 +29,7 @@ public class TopicListData : IWithId<Guid>
     public Guid CreatorId { get; set; }
     public string Create { get; set; } = string.Empty;
     public string Update { get; set; } = string.Empty;
-    public string AsrAccess { get; set; } = string.Empty;
+    //public string AsrAccess { get; set; } = string.Empty;
 
     public object GetId()
     {

@@ -197,12 +197,13 @@ public class TopicService : ITopicService
             AsrMediaStatusText = entity.Media.AsrStatus.GetDescription(),
             ConvertMediaStatus = entity.Media.ConvertStatus,
             ConvertMediaStatusText = entity.Media.ConvertStatus.GetDescription(),
+            CreateType = entity.Media.CreateType.GetDescription(),
             MediaError = entity.Media.Error,
             Progress = entity.Media.Progress,
             CreatorId = entity.CreatorId,
             Update = entity.Update.ToString("yyyy/MM/dd HH:mm:ss"),
             Create = entity.Create.ToString("yyyy/MM/dd HH:mm:ss"),
-            AsrAccess = _activationService.CheckAsrAccess(activationData).ToString(),
+            //AsrAccess = _activationService.CheckAsrAccess(activationData).ToString(),
         };
     }
 
@@ -385,7 +386,8 @@ public class TopicService : ITopicService
                 Extension = extension,
                 OriginalSize = mediaFileLength,
                 Length = duration,
-                FrameRate = model.FrameRate
+                FrameRate = model.FrameRate,
+                CreateType = model.CreateType
             },
             Subtitle = new Database.Entities.Subtitle
             {

@@ -53,7 +53,11 @@ public class AccountController : AuthorizedController
         await _loginService.LogoutAsync();
 
         ViewData["ReturnUrl"] = returnUrl;
-        return View(new LoginViewModel(asrAccess.Message == "Full", activationData != null));
+
+        LoginViewModel models = new LoginViewModel(asrAccess.Message == "Full", activationData != null);
+
+
+        return View(models);
     }
 
     [AllowAnonymous]
@@ -61,6 +65,13 @@ public class AccountController : AuthorizedController
     public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = "/")
     {
         //await _activationService.ClearActivationDataAsync();
+
+#if DEBUG
+        model.Account = "madmin";
+        model.Password = "123";
+
+#endif
+
         if (model == null)
         {
             return View(new LoginViewModel());

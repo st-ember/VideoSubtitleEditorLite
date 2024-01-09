@@ -46,7 +46,7 @@ public class TopicListViewModel : PageableViewModel<TopicListData>, ITopicListCo
             new PageHeaderStyle() { Align = PageHeaderStyle.TextAlign.Left }),
         PageHeader.From("轉檔狀態", nameof(TopicListData.ConvertMediaStatus), true,
             new PageHeaderStyle() { Align = PageHeaderStyle.TextAlign.Left }),
-        PageHeader.From("建立方式", nameof(TopicListData.CreatedOption), true,
+        PageHeader.From("建立方式", nameof(TopicListData.CreateType), true,
             new PageHeaderStyle() { Align = PageHeaderStyle.TextAlign.Left }),
         PageHeader.From("建立時間", nameof(TopicListData.Create), true,
             new PageHeaderStyle() { Align = PageHeaderStyle.TextAlign.Left })
@@ -58,5 +58,5 @@ public class TopicListViewModel : PageableViewModel<TopicListData>, ITopicListCo
     public string ConvertMediaStatus { get; set; } = string.Empty;
     public string Start { get; set; } = string.Empty;
     public string End { get; set; } = string.Empty;
-    public bool AsrAccess {  get; set; } = false;
+    public bool AsrAccess { get; set; } = false;
 }

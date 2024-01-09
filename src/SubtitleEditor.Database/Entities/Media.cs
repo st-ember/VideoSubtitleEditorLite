@@ -80,6 +80,9 @@ public class Media
     [Column("_asr_status")]
     public AsrMediaStatus AsrStatus { get; set; }
 
+    [Column("_create_type")]
+    public TopicCreateType CreateType { get; set; }
+
     /// <summary>
     /// 轉檔狀態。
     /// </summary>

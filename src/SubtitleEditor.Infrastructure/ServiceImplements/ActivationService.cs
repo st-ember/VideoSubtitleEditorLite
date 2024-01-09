@@ -74,11 +74,11 @@ public class ActivationService : IActivationService
         }
         // 增加版本判斷
         // 原本通過上面三個判斷式即回傳success
-        if (activationData.Editions == "Full" || activationData.Version == 1)
+        if (activationData.Editions == "Full" || activationData.Version == 1 || activationData.AsrAccess == true)
         {
             return SimpleResult.IsSuccess();
         }
-        else if (activationData.Editions == "Limited")
+        else if (activationData.Editions == "Limited" || activationData.AsrAccess == false)
         {
             return SimpleResult.IsSuccess("Limited");
         }
@@ -89,23 +89,32 @@ public class ActivationService : IActivationService
     {
         if(activationData != null)
         {
-            if (activationData.Version == 1)
+            if (activationData.Editions == "Full" || activationData.Version == 1 || activationData.AsrAccess == true)
             {
                 return SimpleResult.IsSuccess("Full");
             }
 
-            if (activationData.Editions == "Full")
-            {
-                return SimpleResult.IsSuccess("Full");
-            }
-
-            if (activationData.Editions == "Limited")
+            if (activationData.Editions == "Limited" || activationData.AsrAccess == false)
             {
                 return SimpleResult.IsSuccess("Limited");
             }
         }
 
         return SimpleResult.IsFailed("ASR權限發生未預期的問題");
+    }
+
+    public async Task<bool?> CheckAsrAccessBeta()
+    {
+        var key = await _systemOptionService.GetContentAsync(SystemOptionNames.ActivationKey);
+        var activationData = ResolveKey(key);
+        if (activationData != null)
+        {
+            if (activationData.Editions == "Full" || activationData.Version == 1 || activationData.AsrAccess == true)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public async Task SetActivationDataAsync(string key)

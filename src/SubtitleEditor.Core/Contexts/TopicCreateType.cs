@@ -23,5 +23,8 @@ public enum TopicCreateType
     /// 提供逐字稿來人工製作字幕。
     /// </summary>
     [Description("逐字稿")]
-    Transcript
+    Transcript,
+
+    [Description("字幕時碼匹配")]
+    SrtGenerated
 }

@@ -30,7 +30,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:63852/subtitle-editor",
+      "applicationUrl": "http://localhost:63852/",
       "sslPort": 44346
     }
   }

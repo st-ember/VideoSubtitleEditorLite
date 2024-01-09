@@ -130,8 +130,8 @@ using (var scope = app.Services.CreateScope())
     await systemOptionService.InitializeSystemOptionsAsync(new SystemOptionModel[]
     {
         new SystemOptionModel(SystemOptionNames.AsrUrl, "https://61.219.178.73:8451", "ASR 服務的網址"),
-        new SystemOptionModel(SystemOptionNames.AsrUser, "gbm_admin", "ASR 服務的使用者"),
-        new SystemOptionModel(SystemOptionNames.AsrSecret, "Gbm@2021", "ASR 服務的使用者密碼"),
+        new SystemOptionModel(SystemOptionNames.AsrUser, "asr_admin", "ASR 服務的使用者"),
+        new SystemOptionModel(SystemOptionNames.AsrSecret, "AsrAdmin36912", "ASR 服務的使用者密碼"),
         new SystemOptionModel(SystemOptionNames.SiteTitle, "Video Subtitle Editor", "系統標題"),
         new SystemOptionModel(SystemOptionNames.PasswordExpireDays, "90", "密碼最長使用天數"),
         new SystemOptionModel(SystemOptionNames.PasswordNoneRepeatCount, "3", "密碼不得重複次數"),

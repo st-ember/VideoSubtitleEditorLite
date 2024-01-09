@@ -49,8 +49,9 @@ public class EditorContext : DbContextBase<EditorContext>
             // 1.0.37 在 Subtitle 增加了 _word_limit 欄位。
             ExecuteSqlRawQuietly("ALTER TABLE 'Subtitles' ADD COLUMN '_word_limit' INTEGER;");
 
-            //1.0.38 在Subtitle 增加了 _created_option 欄位。
-            ExecuteSqlRawQuietly("ALTER TABLE 'Subtitles' ADD COLUMN '_created_option' NVARCHAR(10);");
+            //1.0.39 在Subtitle 增加了 _created_option 欄位。
+            ExecuteSqlRawQuietly("ALTER TABLE 'Media' ADD COLUMN IF NOT EXISTS '_create_type' CHAR(10);");
+
         }
     }
 

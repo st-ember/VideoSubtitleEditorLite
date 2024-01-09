@@ -1,6 +1,6 @@
 ﻿
 require.config({
-    baseUrl: '/subtitle-editor',
+    baseUrl: '/',
     paths: {
         '@microsoft/signalr': `lib/signalr/signalr`
     }

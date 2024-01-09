@@ -45,7 +45,7 @@ public class ActivationService
     {
         return new ActivationData
         {
-            Version = 1,
+            Version = 2,
             Publisher = publisher,
             Target = target,
             Editions = editions,

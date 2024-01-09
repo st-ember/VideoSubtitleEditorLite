@@ -11,6 +11,7 @@ public interface IActivationService
     Task SetActivationDataAsync(string key);
     Task ClearActivationDataAsync();
     ISimpleResult CheckAsrAccess(ActivationData activationData);
+    Task<bool?> CheckAsrAccessBeta();
     ActivationData? ResolveKey(string? key);
 
     void ClearCache();

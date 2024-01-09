@@ -98,6 +98,7 @@ public class TopicListProcessor : BasicListProcessor<Topic, ITopicListCondition>
                 AsrMediaStatusText = e.Media.AsrStatus.GetDescription(),
                 ConvertMediaStatus = e.Media.ConvertStatus,
                 ConvertMediaStatusText = e.Media.ConvertStatus.GetDescription(),
+                CreateType = e.Media.CreateType.GetDescription(),
                 MediaError = e.Media.Error,
                 Progress = e.Media.Progress,
                 CreatorId = e.CreatorId,

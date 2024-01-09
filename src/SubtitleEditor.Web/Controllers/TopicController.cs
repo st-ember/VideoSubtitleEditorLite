@@ -62,22 +62,7 @@ public class TopicController : AuthorizedController
             model.Start = DateTime.Today.AddMonths(-6).ToString("yyyy/MM/dd");
             model.End = DateTime.Today.ToString("yyyy/MM/dd");
         }
-        var key = await _systemOptionService.GetContentAsync(SystemOptionNames.ActivationKey);
-        var activationData = _activationService.ResolveKey(key);
-        var asrAccess = _activationService.CheckAsrAccess(activationData);
-
-        if (asrAccess.Message == "Full")
-        {
-            model.AsrAccess = true;
-        }
-        else if (asrAccess.Message == "Limited")
-        {
-            model.AsrAccess = false;
-        }
-        else
-        {
-            model.AsrAccess = false;
-        }
+        model.AsrAccess = (await _activationService.CheckAsrAccessBeta()) ?? false;
         return View(model);
     }
 

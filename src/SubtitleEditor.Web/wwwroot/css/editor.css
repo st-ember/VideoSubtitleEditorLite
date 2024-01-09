@@ -101,6 +101,20 @@
     display: flex;
 }
 
+.se-video-player > #video-subtitle {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 20px;
+    width: 75%;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 0 0 0.2em black, 0 0 0.2em black, 0 0 0.2em black
+}
+
 .se-group-title {
     display: flex;
     flex-direction: row;

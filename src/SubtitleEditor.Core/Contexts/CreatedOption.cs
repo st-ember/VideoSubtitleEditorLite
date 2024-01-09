@@ -9,7 +9,9 @@ namespace SubtitleEditor.Core.Contexts
 {
     public enum CreatedOption
     {
-        [Description("字幕上傳")]
+        [Description("辨識流程")]
+        AIGenerated,
+        [Description("上傳字幕")]
         SubtitleUpload,
         [Description("字幕時碼匹配")]
         SrtGenerated,
